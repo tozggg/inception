@@ -1,0 +1,48 @@
+version:        '3.0'
+
+services:
+  mariadb:
+    image:      mariadb
+    bulid:      ./requirements/mariadb
+    exposs:     "3306"
+    volumes:    DB:/var/lib/mysql/
+    networks:   NW
+    env_file:   .env
+    restart:    on-failure
+
+  wordpress:
+    image:      wordpress
+    bulid:      ./requirements/wordpress
+    expose:     "9000"
+    volumes:    WP:/var/www/wordpress
+    networks:   NW
+    env_file:   .env
+    restart:    on-failure
+    depend_on:  mariadb
+
+  nginx:
+    image:      nginx
+    bulid:      ./requirements/nginx
+    ports:      "443:443"
+    volumes:    WP:/var/www/wordpress
+    networks:   NW
+    restart:    on-failure
+    depend_on:  wordpress
+
+volumes:
+  DB:
+    driver:     local
+    driver_opts:
+      device:   ~/data/db
+      o:        bind
+      type:     none
+  WP:
+    driver:     local
+    driver_opts:
+      device:   ~/data/wp
+      o:        bind
+      type:     none
+
+networks:
+  NW:
+    driver:     bridge

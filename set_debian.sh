@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### Package
+### Package ###############################################################
 # 사용자 전환
 su -
 
@@ -34,7 +34,8 @@ sudo apt-get install -y vim
 # systemd 설치
 sudo apt-get install -y systemd
 
-### Docker
+
+### Docker ################################################################
 # Repository 인덱스 업데이트
 sudo apt-get update
 
