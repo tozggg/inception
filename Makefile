@@ -6,12 +6,12 @@
 #    By: taejkim <taejkim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 18:13:32 by taejkim           #+#    #+#              #
-#    Updated: 2022/06/13 19:52:27 by taejkim          ###   ########.fr        #
+#    Updated: 2022/06/13 20:31:17 by taejkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = inception
-YML = ./srcs/docker-compose.yml
+YML = srcs/docker-compose.yml
 
 
 all: $(NAME)

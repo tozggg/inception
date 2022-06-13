@@ -2,13 +2,13 @@
 
 ### Package ###############################################################
 # 사용자 전환
-su -
+### su -        														<<<<@@
 
 # Repository 인덱스 업데이트
 apt-get update
 
 # sudo 설치
-apt-get install -y sudo
+### apt-get install -y sudo                                            	<<<<@@
 
 # 패키지 관리자가 https를 이용할 수 있도록 설정
 sudo apt-get install -y apt-transport-https
@@ -23,7 +23,7 @@ sudo apt-get install -y curl
 sudo apt-get install -y software-properties-common
 
 # git 설치
-sudo apt-get install -y git
+### sudo apt-get install -y git 										<<<<@@
 
 # make 설치
 sudo apt-get install -y make
@@ -62,7 +62,7 @@ sudo chmod 666 /var/run/docker.sock
 
 # 도커 컴포즈 설치 (1.29.2 버전)
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
+d
 # 도커 컴포즈 실행 권한 부여
 sudo chmod +x /usr/local/bin/docker-compose
 
@@ -71,3 +71,13 @@ sudo su -c 'printf "{\n\t\"live-restore\": true\n}" > /etc/docker/docker.json'
 
 # 도커 서비스 재시작
 sudo systemctl restart docker
+
+# 사용자를 sudo 그룹에 추가
+sudo usermod -a -G sudo taejkim
+
+# 사용자를 root 그룹에 추가
+sudo usermod -a -G root taejkim
+
+sudo usermod -a -G docker taejkim
+
+sudo visudo

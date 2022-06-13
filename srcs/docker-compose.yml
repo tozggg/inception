@@ -1,60 +1,60 @@
-version:        '3.0'
+version: '3.0'
 
 services:
   mariadb:
-    image:      mariadb
-    bulid:      ./requirements/mariadb
-    env_file:   .env
-    restart:    on-failure
+    image: mariadb
+    bulid: ./requirements/mariadb
+    env_file: .env
+    restart: on-failure
     exposs:     
-                - 3306
+      - 3306
     volumes:    
-                - DB:/var/lib/mysql/
+      - DB:/var/lib/mysql/
     networks:   
-                - NW
+      - NW
 
   wordpress:
-    image:      wordpress
-    bulid:      ./requirements/wordpress
-    env_file:   .env
-    restart:    on-failure
+    image: wordpress
+    bulid: ./requirements/wordpress
+    env_file: .env
+    restart: on-failure
     expose:     
-                - 9000
+      - 9000
     volumes:    
-                - WP:/var/www/wordpress
+      - WP:/var/www/wordpress
     networks:   
-                - NW
+      - NW
     depend_on:  
-                - mariadb
+      - mariadb
 
   nginx:
-    image:      nginx
-    bulid:      ./requirements/nginx
-    env_file:   .env
-    restart:    on-failure
+    image: nginx
+    bulid: ./requirements/nginx
+    env_file: .env
+    restart: on-failure
     ports:      
-                - 443:443
+      - 443:443
     volumes:    
-                - WP:/var/www/wordpress
+      - WP:/var/www/wordpress
     networks:   
-                - NW
+      - NW
     depend_on:  
-                - wordpress
+      - wordpress
 
 volumes:
   DB:
-    driver:     local
+    driver: local
     driver_opts:
-      device:   ~/data/db
-      o:        bind
-      type:     none
+      device: ~/data/db
+      o: bind
+      type: none
   WP:
-    driver:     local
+    driver: local
     driver_opts:
-      device:   ~/data/wp
-      o:        bind
-      type:     none
+      device: ~/data/wp
+      o: bind
+      type: none
 
 networks:
   NW:
-    driver:     bridge
+    driver: bridge
