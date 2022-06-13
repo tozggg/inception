@@ -4,30 +4,42 @@ services:
   mariadb:
     image:      mariadb
     bulid:      ./requirements/mariadb
-    exposs:     "3306"
-    volumes:    DB:/var/lib/mysql/
-    networks:   NW
     env_file:   .env
     restart:    on-failure
+    exposs:     
+                - 3306
+    volumes:    
+                - DB:/var/lib/mysql/
+    networks:   
+                - NW
 
   wordpress:
     image:      wordpress
     bulid:      ./requirements/wordpress
-    expose:     "9000"
-    volumes:    WP:/var/www/wordpress
-    networks:   NW
     env_file:   .env
     restart:    on-failure
-    depend_on:  mariadb
+    expose:     
+                - 9000
+    volumes:    
+                - WP:/var/www/wordpress
+    networks:   
+                - NW
+    depend_on:  
+                - mariadb
 
   nginx:
     image:      nginx
     bulid:      ./requirements/nginx
-    ports:      "443:443"
-    volumes:    WP:/var/www/wordpress
-    networks:   NW
+    env_file:   .env
     restart:    on-failure
-    depend_on:  wordpress
+    ports:      
+                - 443:443
+    volumes:    
+                - WP:/var/www/wordpress
+    networks:   
+                - NW
+    depend_on:  
+                - wordpress
 
 volumes:
   DB:
