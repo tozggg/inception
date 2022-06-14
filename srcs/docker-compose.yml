@@ -24,7 +24,7 @@ services:
       - WP:/var/www/wordpress
     networks:   
       - NW
-    depend_on:  
+    depends_on:  
       - mariadb
 
   nginx:
@@ -38,7 +38,7 @@ services:
       - WP:/var/www/wordpress
     networks:   
       - NW
-    depend_on:  
+    depends_on:  
       - wordpress
 
 volumes:
