@@ -1,10 +1,8 @@
 #!/bin/bash
 
-if [ ! -e /var/www/wordpress/wp-config.php ]; then
-	wget https://wordpress.org/wordpress-5.9.1.tar.gz -P /var/www
-	tar -xvf /var/www/wordpress-5.9.1.tar.gz
-	rm /var/www/wordpress-5.9.1.tar.gz
-
+if [ ! -e /var/www/wordpress ]; then
+	mkdir -p /var/www/wordpress
+	wp core download --allow-root --version=5.9.1 --path='/var/www/wordpress'
 	chown -R www-data:www-data /var/www/wordpress
 
 	wp config create	--allow-root --dbname=$DB_NAME --dbuser=$DB_USER\
