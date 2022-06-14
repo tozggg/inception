@@ -62,7 +62,7 @@ sudo chmod 666 /var/run/docker.sock
 
 # 도커 컴포즈 설치 (1.29.2 버전)
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-d
+
 # 도커 컴포즈 실행 권한 부여
 sudo chmod +x /usr/local/bin/docker-compose
 

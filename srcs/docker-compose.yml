@@ -3,7 +3,7 @@ version: '3.0'
 services:
   mariadb:
     image: mariadb
-    bulid: ./requirements/mariadb
+    build: ./requirements/mariadb
     env_file: .env
     restart: on-failure
     expose:     
@@ -15,7 +15,7 @@ services:
 
   wordpress:
     image: wordpress
-    bulid: ./requirements/wordpress
+    build: ./requirements/wordpress
     env_file: .env
     restart: on-failure
     expose:     
@@ -29,7 +29,7 @@ services:
 
   nginx:
     image: nginx
-    bulid: ./requirements/nginx
+    build: ./requirements/nginx
     env_file: .env
     restart: on-failure
     ports:      

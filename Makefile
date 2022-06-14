@@ -6,7 +6,7 @@
 #    By: taejkim <taejkim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 18:13:32 by taejkim           #+#    #+#              #
-#    Updated: 2022/06/13 20:53:53 by taejkim          ###   ########.fr        #
+#    Updated: 2022/06/14 14:28:47 by taejkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ all: $(NAME)
 
 $(NAME):
 	sudo ./srcs/requirements/tools/setup.sh
-	sudo docker-compose -f $(YML) up -d --bulid
+	sudo docker-compose -f $(YML) up -d --build
 
 stop:
 	sudo docker-compose -f $(YML) stop
