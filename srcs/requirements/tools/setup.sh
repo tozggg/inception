@@ -8,5 +8,5 @@ fi
 if [ ! -e "/etc/.hostset" ]; then
 	sudo chmod 777 /etc/hosts
 	sudo echo "127.0.0.1 taejkim.42.fr" >> /etc/hosts
-	touch /etc/.hostset
+	sudo touch /etc/.hostset
 fi
