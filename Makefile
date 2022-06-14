@@ -6,7 +6,7 @@
 #    By: taejkim <taejkim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 18:13:32 by taejkim           #+#    #+#              #
-#    Updated: 2022/06/14 15:18:39 by taejkim          ###   ########.fr        #
+#    Updated: 2022/06/14 19:33:24 by taejkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,14 @@ $(NAME):
 	./srcs/requirements/tools/setup.sh
 	docker-compose -f $(YML) up -d --build
 
-stop:
-	docker-compose -f $(YML) stop
-
-clean: stop
+clean:
 	docker-compose -f $(YML) down
 
 fclean: clean
 	docker system prune -af
+	docker volume rm $(docker volume ls -q)
 	sudo rm -rf /home/taejkim/data
 
 re: fclean all
 
-.PHONY: all stop clean fclean re
+.PHONY: all clean fclean re

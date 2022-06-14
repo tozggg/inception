@@ -14,4 +14,4 @@ fi
 
 #sleep 5
 
-mysqld
+mysqld_safe
