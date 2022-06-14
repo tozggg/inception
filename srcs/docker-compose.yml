@@ -6,7 +6,7 @@ services:
     bulid: ./requirements/mariadb
     env_file: .env
     restart: on-failure
-    exposs:     
+    expose:     
       - 3306
     volumes:    
       - DB:/var/lib/mysql/
