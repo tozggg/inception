@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ ! -e "/home/taejkim/data" ]; then
 	sudo mkdir -p /home/taejkim/data/db

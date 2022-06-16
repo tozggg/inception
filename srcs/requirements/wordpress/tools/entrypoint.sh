@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ ! -e /var/www/wordpress/wp-config.php ]; then
 	mkdir -p /var/www/wordpress

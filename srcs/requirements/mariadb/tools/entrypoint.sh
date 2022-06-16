@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ ! -d /var/lib/mysql/$DB_NAME ]; then
 	service mysql start
