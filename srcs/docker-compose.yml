@@ -5,7 +5,7 @@ services:
     image: mariadb
     build: ./requirements/mariadb
     env_file: .env
-    restart: on-failure
+    restart: always
     expose:     
       - 3306
     volumes:    
@@ -17,7 +17,7 @@ services:
     image: wordpress
     build: ./requirements/wordpress
     env_file: .env
-    restart: on-failure
+    restart: always
     expose:     
       - 9000
     volumes:    
@@ -30,7 +30,7 @@ services:
   nginx:
     image: nginx
     build: ./requirements/nginx
-    restart: on-failure
+    restart: always
     ports:      
       - 443:443
     volumes:    
