@@ -2,7 +2,7 @@
 [subject](https://github.com/tozggg/inception/blob/master/subject.pdf)  
 docker-compose를 이용해 wordpress 웹사이트 구성하기  
 <br>
-<img width="50%" src="https://github.com/tozggg/inception/blob/master/diagram.png?raw=true"/>
+<img width="65%" src="https://github.com/tozggg/inception/blob/master/diagram.png?raw=true"/>
 <br>
 <br>
 ## Details
